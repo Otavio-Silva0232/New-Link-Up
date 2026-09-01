@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Up | Início</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="topo">
+            <div class="topo-info">
+                <div>
+                    <p class="tag">Área do usuário</p>
+                    <h1>Buscar perfis</h1>
+                </div>
+                <button id="logoutBtn" class="btn-logout">Sair</button>
+            </div>
+
+            <div class="usuario-bar">
+                <span id="userName">Olá!</span>
+            </div>
+
+            <div class="busca">
+                <span class="busca-icon">🔎</span>
+                <input id="searchInput" type="text" placeholder="Pesquise nome ou e-mail do perfil...">
+            </div>
+        </header>
+
+        <section class="conteudo">
+            <aside class="resultados">
+                <h2>Perfis</h2>
+                <div id="resultsList" class="lista-perfis"></div>
+            </aside>
+
+            <section id="perfilDetalhe" class="perfil">
+                <h2>Perfil selecionado</h2>
+
+                <div id="perfilInfo">
+                    <h3 id="perfilNome" class="detalhe-nome"></h3>
+                    <p id="perfilEmail" class="detalhe-email"></p>
+                </div>
+
+                <div class="avaliacoes">
+                    <h3>Avaliações</h3>
+                    <div id="avaliacoesList"></div>
+                </div>
+
+                <form id="avaliacaoForm" class="form-avaliacao">
+                    <label for="nota">Sua nota:</label>
+                    <select id="nota" name="nota">
+                        <option value="5">5 - Excelente</option>
+                        <option value="4">4 - Bom</option>
+                        <option value="3">3 - Médio</option>
+                        <option value="2">2 - Ruim</option>
+                        <option value="1">1 - Péssimo</option>
+                    </select>
+
+                    <label for="comentario">Seu comentário:</label>
+                    <textarea id="comentario" name="comentario" placeholder="Escreva sua avaliação..." required></textarea>
+
+                    <button type="submit">Salvar avaliação</button>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

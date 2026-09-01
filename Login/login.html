@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Up | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Bem-vindo</h1>
+        <h2>Acesse sua conta</h2>
+
+        <form id="formLogin">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Digite seu e-mail ou admin" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p id="mensagem" class="mensagem" aria-live="polite"></p>
+
+        <h3>Não tem uma conta? <a href="../Cadastro/cadastro.html">Cadastre-se</a></h3>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
