@@ -45,7 +45,7 @@ function renderizarResultados(lista) {
     }
 
     resultsList.innerHTML = lista
-        .map(() => {
+        .map((usuario) => {
             const selecionado = perfilSelecionado && perfilSelecionado.email === usuario.email ? 'selecionado' : '';
             return `
                 <div class="perfil-card ${selecionado}" data-email="${usuario.email}">

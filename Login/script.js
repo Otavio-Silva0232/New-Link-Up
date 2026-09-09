@@ -12,6 +12,7 @@ botaoLogin.addEventListener('click', function () {
     document.body.classList.remove('cadastro-ativo');
 });
 
+//ENTRADA ADM//
 function garantirAdmin() {
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
     const adminJaExiste = usuarios.some((usuario) => usuario.email === 'admin');
@@ -94,10 +95,22 @@ formCadastro.addEventListener('submit', function (event) {
     }
 
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    const nomeNormalizado = nome.toLowerCase().replace(/\s+/g, ' ');
     const emailJaExiste = usuarios.some((usuario) => usuario.email.toLowerCase() === email.toLowerCase());
+    const nomeJaExiste = usuarios.some((usuario) => {
+        const nomeUsuario = (usuario.nome || '').toLowerCase().replace(/\s+/g, ' ').trim();
+        return nomeUsuario === nomeNormalizado;
+    });
 
     if (emailJaExiste) {
         mensagemCadastro.textContent = 'Este e-mail já está cadastrado.';
+        mensagemCadastro.classList.add('erro');
+        mensagemCadastro.classList.remove('sucesso');
+        return;
+    }
+
+    if (nomeJaExiste) {
+        mensagemCadastro.textContent = 'Este nome já está cadastrado.';
         mensagemCadastro.classList.add('erro');
         mensagemCadastro.classList.remove('sucesso');
         return;
