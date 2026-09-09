@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link Up | Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/Login/style.css">
 </head>
 <body>
-    <main class="container">
-        <h1>Bem-vindo</h1>
-        <h2>Acesse sua conta</h2>
+
+    <main class="welcome-panel">
+        <h1>BEM VINDO AO LINK UP</h1>
+        <p>Sua Plataforma de conexão<br><br>
+        Conecte-se com Desenvolvedores e empregadores
+        na melhor plataforma de maricá, crie projetos,
+        contrate desenvolvedores, ou
+         ofereça serviços de desenvolvimento.
+
+        </p>        
+    </main>
+
+    <main class="login-panel">
+        <h3>Faça login para acessar sua conta e explorar perfis.</h3>
+
+        <h3>Acesse sua conta</h3>
 
         <form id="formLogin">
             <label for="email">Email:</label>
@@ -19,13 +32,33 @@
             <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
 
             <button type="submit">Entrar</button>
+            <button type="button" id="botaoCadastro">Não Possuo conta</button>
         </form>
 
         <p id="mensagem" class="mensagem" aria-live="polite"></p>
+    </main>
+    
+    <main class="cadastro-panel">
+        <h3>Crie sua conta para explorar perfis e compartilhar avaliações.</h3>
+        <h3>Cadastre-se</h3>
 
-        <h3>Não tem uma conta? <a href="../Cadastro/cadastro.html">Cadastre-se</a></h3>
+        <form id="formCadastro">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+            <label for="emailCadastro">Email:</label>
+            <input type="email" id="emailCadastro" name="email" placeholder="Digite seu e-mail" required>
+
+            <label for="passwordCadastro">Senha:</label>
+            <input type="password" id="passwordCadastro" name="password" placeholder="Crie uma senha" required>
+
+            <button type="submit">Cadastrar</button>
+            <button type="button" id="botaoLogin">Já tenho conta</button>
+        </form>
+
+        <p id="mensagemCadastro" class="mensagem" aria-live="polite"></p>
     </main>
 
-    <script src="script.js"></script>
+    <script src="/Login/script.js"></script>
 </body>
 </html>

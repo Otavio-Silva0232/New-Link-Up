@@ -1,18 +1,28 @@
+:root {
+    --bg-panel: rgba(26, 0, 48, 0.86);
+    --purple: #8a2be2;
+    --purple-light: #c084fc;
+    --muted: #d6d6d6;
+    --shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #111827, #1d4ed8);
-    color: #e5e7eb;
+    min-height: 100vh;
+    font-family: "Times New Roman", Times, serif;
+    background: linear-gradient(135deg, #12001f, #35105c 55%, #5b21b6);
+    color: #ffffff;
+    padding: 24px;
 }
 
 .admin-app {
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 24px;
+    max-width: 1200px;
+    margin: 16px auto;
 }
 
 .admin-header {
@@ -20,18 +30,18 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 18px;
+    background: var(--bg-panel);
+    border-radius: 20px;
     padding: 20px 24px;
     margin-bottom: 24px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow);
 }
 
 .tag {
     margin: 0 0 8px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #93c5fd;
+    color: var(--purple-light);
     font-size: 0.8rem;
     font-weight: 700;
 }
@@ -42,7 +52,7 @@ body {
 }
 
 .btn-sair {
-    background: #ef4444;
+    background: #b91c1c;
     color: white;
     padding: 12px 18px;
     border: none;
@@ -59,10 +69,10 @@ body {
 
 .lista-usuarios,
 .comentarios-box {
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 18px;
+    background: var(--bg-panel);
+    border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    box-shadow: var(--shadow);
 }
 
 .lista-usuarios h2,
@@ -83,8 +93,8 @@ body {
 
 .usuario-item:hover,
 .usuario-item.selecionado {
-    border-color: #60a5fa;
-    background: rgba(59, 130, 246, 0.2);
+    border-color: var(--purple-light);
+    background: rgba(138, 43, 226, 0.2);
 }
 
 .usuario-item strong {
@@ -94,7 +104,7 @@ body {
 
 .usuario-item span {
     display: block;
-    color: #bfdbfe;
+    color: var(--purple-light);
     font-size: 0.9rem;
 }
 
@@ -122,7 +132,7 @@ body {
 }
 
 .comentario-meta {
-    color: #93c5fd;
+    color: var(--purple-light);
     font-size: 0.8rem;
     margin-top: 8px;
 }
@@ -138,7 +148,7 @@ body {
     width: 100%;
     min-height: 100px;
     border-radius: 10px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #cccccc;
     padding: 12px 14px;
     font-family: inherit;
     resize: vertical;
@@ -148,7 +158,7 @@ body {
     align-self: flex-start;
     border: none;
     border-radius: 10px;
-    background: #2563eb;
+    background: var(--purple);
     color: white;
     padding: 10px 16px;
     cursor: pointer;
@@ -156,7 +166,7 @@ body {
 }
 
 .empty-state {
-    color: #cbd5e1;
+    color: var(--muted);
     font-size: 0.95rem;
 }
 

@@ -1,5 +1,16 @@
+//LOGIN//
 const formLogin = document.getElementById('formLogin');
 const mensagem = document.getElementById('mensagem');
+const botaoCadastro = document.getElementById('botaoCadastro');
+const botaoLogin = document.getElementById('botaoLogin');
+
+botaoCadastro.addEventListener('click', function () {
+    document.body.classList.add('cadastro-ativo');
+});
+
+botaoLogin.addEventListener('click', function () {
+    document.body.classList.remove('cadastro-ativo');
+});
 
 function garantirAdmin() {
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
@@ -61,4 +72,48 @@ formLogin.addEventListener('submit', function (event) {
             window.location.href = '../inicio/inicio.html';
         }
     }, 500);
+});
+
+
+//CADASTRO//
+const formCadastro = document.getElementById('formCadastro');
+const mensagemCadastro = formCadastro.nextElementSibling;
+
+formCadastro.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('name').value.trim();
+    const email = document.getElementById('emailCadastro').value.trim();
+    const senha = document.getElementById('passwordCadastro').value.trim();
+
+    if (!nome || !email || !senha) {
+        mensagemCadastro.textContent = 'Preencha todos os campos.';
+        mensagemCadastro.classList.add('erro');
+        mensagemCadastro.classList.remove('sucesso');
+        return;
+    }
+
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    const emailJaExiste = usuarios.some((usuario) => usuario.email.toLowerCase() === email.toLowerCase());
+
+    if (emailJaExiste) {
+        mensagemCadastro.textContent = 'Este e-mail já está cadastrado.';
+        mensagemCadastro.classList.add('erro');
+        mensagemCadastro.classList.remove('sucesso');
+        return;
+    }
+
+    const novoUsuario = {
+        nome: nome,
+        email: email,
+        senha: senha
+    };
+
+    usuarios.push(novoUsuario);
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+    mensagemCadastro.textContent = 'Cadastro realizado com sucesso!';
+    mensagemCadastro.classList.add('sucesso');
+    mensagemCadastro.classList.remove('erro');
+    formCadastro.reset();
 });
