@@ -1,7 +1,9 @@
 :root {
-    --bg-panel: rgba(26, 0, 48, 0.86);
+    --bg-panel: rgba(20, 16, 42, 0.9);
+    --bg-card: rgba(255, 255, 255, 0.06);
     --purple: #8a2be2;
     --purple-light: #c084fc;
+    --cyan: #67e8f9;
     --shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
 }
 
@@ -12,16 +14,16 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: "Times New Roman", Times, serif;
-    background: linear-gradient(135deg, #12001f, #35105c 55%, #5b21b6);
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    background: radial-gradient(circle at 12% 12%, rgba(103, 232, 249, 0.18), transparent 30%),
+        linear-gradient(135deg, #100d24, #29154b 55%, #4c1d95);
     color: #ffffff;
     padding: 24px;
 }
 
 .app {
-    max-width: 1100px;
+    width: min(1180px, 100%);
     margin: 40px auto;
-    padding: 24px;
 }
 
 .topo {
@@ -29,6 +31,7 @@ body {
     border-radius: 18px;
     padding: 18px 20px;
     box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .topo-info {
@@ -50,7 +53,8 @@ body {
 
 .topo h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
 }
 
 .btn-logout {
@@ -61,6 +65,12 @@ body {
     font-weight: 700;
     padding: 10px 16px;
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
 }
 
 .usuario-bar {
@@ -79,6 +89,7 @@ body {
     color: #222222;
     border-radius: 14px;
     padding: 12px 16px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .busca-icon {
@@ -91,6 +102,10 @@ body {
     outline: none;
     font-size: 1rem;
     background: transparent;
+}
+
+.busca:focus-within {
+    box-shadow: 0 0 0 3px rgba(103, 232, 249, 0.3);
 }
 
 .conteudo {
@@ -106,6 +121,7 @@ body {
     border-radius: 18px;
     padding: 20px;
     box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .resultados h2,
@@ -119,10 +135,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 4px;
 }
 
 .perfil-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 14px 16px;
@@ -148,8 +167,9 @@ body {
 }
 
 .perfil-card.selecionado {
-    background: rgba(59, 130, 246, 0.2);
-    border-color: var(--purple);
+    background: rgba(103, 232, 249, 0.12);
+    border-color: var(--cyan);
+    box-shadow: inset 4px 0 0 var(--cyan);
 }
 
 .perfil.hidden,
@@ -248,6 +268,15 @@ body {
 
 .form-avaliacao button:hover {
     filter: brightness(1.08);
+}
+
+button:focus-visible,
+.perfil-card:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(103, 232, 249, 0.65);
+    outline-offset: 2px;
 }
 
 @media (max-width: 760px) {

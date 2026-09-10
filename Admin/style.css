@@ -1,7 +1,9 @@
 :root {
-    --bg-panel: rgba(26, 0, 48, 0.86);
+    --bg-panel: rgba(20, 16, 42, 0.9);
+    --bg-card: rgba(255, 255, 255, 0.06);
     --purple: #8a2be2;
     --purple-light: #c084fc;
+    --cyan: #67e8f9;
     --muted: #d6d6d6;
     --shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
 }
@@ -13,14 +15,14 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: "Times New Roman", Times, serif;
-    background: linear-gradient(135deg, #12001f, #35105c 55%, #5b21b6);
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    background: radial-gradient(circle at 88% 10%, rgba(103, 232, 249, 0.16), transparent 28%),
+        linear-gradient(135deg, #100d24, #29154b 55%, #4c1d95);
     color: #ffffff;
     padding: 24px;
 }
 
 .admin-app {
-    max-width: 1200px;
     max-width: 1200px;
     margin: 16px auto;
 }
@@ -35,6 +37,7 @@ body {
     padding: 20px 24px;
     margin-bottom: 24px;
     box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tag {
@@ -48,7 +51,8 @@ body {
 
 .admin-header h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
 }
 
 .btn-sair {
@@ -59,6 +63,12 @@ body {
     border-radius: 10px;
     cursor: pointer;
     font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-sair:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
 }
 
 .admin-panel {
@@ -73,16 +83,25 @@ body {
     border-radius: 20px;
     padding: 20px;
     box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .lista-usuarios h2,
 .comentarios-box h2 {
     margin-top: 0;
     margin-bottom: 16px;
+    font-size: 1.35rem;
+}
+
+.lista-usuarios > div,
+.comentarios-box > div {
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 4px;
 }
 
 .usuario-item {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--bg-card);
     border: 1px solid rgba(255,255,255,0.09);
     border-radius: 12px;
     padding: 12px 14px;
@@ -93,8 +112,9 @@ body {
 
 .usuario-item:hover,
 .usuario-item.selecionado {
-    border-color: var(--purple-light);
-    background: rgba(138, 43, 226, 0.2);
+    border-color: var(--cyan);
+    background: rgba(103, 232, 249, 0.12);
+    box-shadow: inset 4px 0 0 var(--cyan);
 }
 
 .usuario-item strong {
@@ -109,7 +129,7 @@ body {
 }
 
 .comentario-card {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--bg-card);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
     padding: 16px;
@@ -168,6 +188,13 @@ body {
 .empty-state {
     color: var(--muted);
     font-size: 0.95rem;
+}
+
+button:focus-visible,
+.usuario-item:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(103, 232, 249, 0.65);
+    outline-offset: 2px;
 }
 
 @media (max-width: 900px) {

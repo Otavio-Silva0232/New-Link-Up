@@ -4,12 +4,19 @@ const mensagem = document.getElementById('mensagem');
 const botaoCadastro = document.getElementById('botaoCadastro');
 const botaoLogin = document.getElementById('botaoLogin');
 
+function atualizarToggle(cadastroAtivo) {
+    botaoCadastro.classList.toggle('ativo', cadastroAtivo);
+    botaoLogin.classList.toggle('ativo', !cadastroAtivo);
+}
+
 botaoCadastro.addEventListener('click', function () {
     document.body.classList.add('cadastro-ativo');
+    atualizarToggle(true);
 });
 
 botaoLogin.addEventListener('click', function () {
     document.body.classList.remove('cadastro-ativo');
+    atualizarToggle(false);
 });
 
 //ENTRADA ADM//

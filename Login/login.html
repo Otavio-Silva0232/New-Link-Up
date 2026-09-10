@@ -8,19 +8,22 @@
 </head>
 <body>
 
-    <main class="welcome-panel">
-        <h1>BEM VINDO AO LINK UP</h1>
-        <p>Sua Plataforma de conexão<br><br>
-        Conecte-se com Desenvolvedores e empregadores
-        na melhor plataforma de maricá, crie projetos,
-        contrate desenvolvedores, ou
-         ofereça serviços de desenvolvimento.
+    <nav class="auth-toggle" aria-label="Alternar entre login e cadastro">
+        <button type="button" id="botaoLogin" class="ativo">Login</button>
+        <button type="button" id="botaoCadastro">Cadastrar</button>
+    </nav>
 
-        </p>        
+    <main class="welcome-panel">
+        <div class="welcome-content">
+            <p class="welcome-eyebrow">LINK UP</p>
+            <h1>Conecte-se.<br>Crie. Cresça.</h1>
+            <p class="welcome-text">
+                Encontre pessoas, projetos e oportunidades para transformar suas ideias em realidade.
+            </p>
+        </div>
     </main>
 
     <main class="login-panel">
-        <h3>Faça login para acessar sua conta e explorar perfis.</h3>
 
         <h3>Acesse sua conta</h3>
 
@@ -32,14 +35,12 @@
             <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
 
             <button type="submit">Entrar</button>
-            <button type="button" id="botaoCadastro">Não Possuo conta</button>
         </form>
 
         <p id="mensagem" class="mensagem" aria-live="polite"></p>
     </main>
     
     <main class="cadastro-panel">
-        <h3>Crie sua conta para explorar perfis e compartilhar avaliações.</h3>
         <h3>Cadastre-se</h3>
 
         <form id="formCadastro">
@@ -53,7 +54,6 @@
             <input type="password" id="passwordCadastro" name="password" placeholder="Crie uma senha" required>
 
             <button type="submit">Cadastrar</button>
-            <button type="button" id="botaoLogin">Já tenho conta</button>
         </form>
 
         <p id="mensagemCadastro" class="mensagem" aria-live="polite"></p>
