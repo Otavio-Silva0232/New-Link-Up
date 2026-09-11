@@ -20,7 +20,7 @@ function getUsuarioLogado() {
 function protegerPagina() {
     const usuario = getUsuarioLogado();
     if (!usuario || usuario.role !== 'admin') {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     }
 }
 
@@ -124,7 +124,7 @@ function renderizarComentarios(usuario) {
 
 sairBtn.addEventListener('click', () => {
     sessionStorage.removeItem('usuarioLogado');
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 });
 
 protegerPagina();

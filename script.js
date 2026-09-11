@@ -75,9 +75,9 @@ formLogin.addEventListener('submit', function (event) {
 
     setTimeout(() => {
         if (usuarioValido.role === 'admin') {
-            window.location.href = '../Admin/admin.html';
+            window.location.href = 'Admin/admin.html';
         } else {
-            window.location.href = '../inicio/inicio.html';
+            window.location.href = 'inicio/inicio.html';
         }
     }, 500);
 });
