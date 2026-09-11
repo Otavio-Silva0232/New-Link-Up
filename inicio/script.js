@@ -2,7 +2,7 @@ const STORAGE_KEY = 'usuarios';
 const userLogado = JSON.parse(sessionStorage.getItem('usuarioLogado') || 'null');
 
 if (!userLogado) {
-    window.location.href = '../Login/login.html';
+    window.location.href = 'index.html';
 }
 
 const searchInput = document.getElementById('searchInput');
@@ -181,7 +181,7 @@ avaliacaoForm.addEventListener('submit', (event) => {
 
 logoutBtn.addEventListener('click', () => {
     sessionStorage.removeItem('usuarioLogado');
-    window.location.href = '../Login/login.html';
+    window.location.href = 'index.html';
 });
 
 const usuariosIniciais = getPerfisDisponiveis();
